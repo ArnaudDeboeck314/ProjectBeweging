@@ -3,76 +3,110 @@ function [F1_2_x,F1_2_y,F2_12_x,F2_12_y,F2_3_x,F2_3_y,F3_4_x,F3_4_y,F3_5_x,F3_5_
           grassey_dynamics(t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,ddt2,ddt3,ddt4,ddt5,ddt6,ddt7,ddt8,ddt9,ddt10,ddt11,ddt12,dt2,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,dt11,dt12, ...
                            r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,I2,I3,I4,I5,I6,I7,I8,I9,I10,I11,I12,t)
 
-F1_2_x = zeros(size(phi2));
-F1_2_y = zeros(size(phi2));
-F2_12_x = zeros(size(phi2));
-F2_12_y = zeros(size(phi2));
-F2_3_x = zeros(size(phi2));
-F2_3_y = zeros(size(phi2));
-F3_4_x = zeros(size(phi2));
-F3_4_y = zeros(size(phi2));
-F3_5_x = zeros(size(phi2));
-F3_5_y = zeros(size(phi2));
-F4_6_x = zeros(size(phi2));
-F4_6_y = zeros(size(phi2));
-F6_7_x = zeros(size(phi2));
-F6_7_y = zeros(size(phi2));
-F6_8_x = zeros(size(phi2));
-F6_8_y = zeros(size(phi2));
-F8_9_x = zeros(size(phi2));
-F8_9_y = zeros(size(phi2));
-F8_10_x = zeros(size(phi2));
-F8_10_y = zeros(size(phi2));
-F12_10_x = zeros(size(phi2));
-F12_10_y = zeros(size(phi2));
-F12_11_x = zeros(size(phi2));
-F12_11_y = zeros(size(phi2));
-F1_5_x = zeros(size(phi2));
-F1_5_y = zeros(size(phi2));
-F1_7_x = zeros(size(phi2));
-F1_7_y = zeros(size(phi2));
-F1_9_x = zeros(size(phi2));
-F1_9_y = zeros(size(phi2));
-F1_11_x = zeros(size(phi2));
-F1_11_y = zeros(size(phi2));
-M_2 = zeros(size(phi2));
+F1_2_x = zeros(size(t2));
+F1_2_y = zeros(size(t2));
+F2_12_x = zeros(size(t2));
+F2_12_y = zeros(size(t2));
+F2_3_x = zeros(size(t2));
+F2_3_y = zeros(size(t2));
+F3_4_x = zeros(size(t2));
+F3_4_y = zeros(size(t2));
+F3_5_x = zeros(size(t2));
+F3_5_y = zeros(size(t2));
+F4_6_x = zeros(size(t2));
+F4_6_y = zeros(size(t2));
+F6_7_x = zeros(size(t2));
+F6_7_y = zeros(size(t2));
+F6_8_x = zeros(size(t2));
+F6_8_y = zeros(size(t2));
+F8_9_x = zeros(size(t2));
+F8_9_y = zeros(size(t2));
+F8_10_x = zeros(size(t2));
+F8_10_y = zeros(size(t2));
+F12_10_x = zeros(size(t2));
+F12_10_y = zeros(size(t2));
+F12_11_x = zeros(size(t2));
+F12_11_y = zeros(size(t2));
+F1_5_x = zeros(size(t2));
+F1_5_y = zeros(size(t2));
+F1_7_x = zeros(size(t2));
+F1_7_y = zeros(size(t2));
+F1_9_x = zeros(size(t2));
+F1_9_y = zeros(size(t2));
+F1_11_x = zeros(size(t2));
+F1_11_y = zeros(size(t2));
+M_2 = zeros(size(t2));
 
-a2_x = -dt2*dt2*r2*0.5*cos(t2) + -ddt2*r2*0.5*sin(t2);
-a2_y = -dt2*dt2*r2*0.5*sin(t2) + ddt2*r2*0.5*cos(t2);
+a2_x = zeros(size(t2));
+a2_y = zeros(size(t2));
 
-a3_x = a2_x + -dt3*dt3*r3*0.5*cos(t3) + -ddt3*r3*0.5*sin(t3);
-a3_y = a2_y + -dt3*dt3*r3*0.5*sin(t3) + ddt3*r3*0.5*cos(t3);
+a3_x = zeros(size(t2));
+a3_y = zeros(size(t2));
 
-a5_x = -dt5*dt5*r5*0.5*cos(t5) + -ddt5*r5*0.5*sin(t5);
-a5_y = -dt5*dt5*r5*0.5*sin(t5) + ddt5*r5*0.5*cos(t5);
+a5_x = zeros(size(t2));
+a5_y = zeros(size(t2));
 
-a4_x = a5_x + -dt4*dt4*r4*0.5*cos(t4) + -ddt4*r4*0.5*sin(t4);
-a4_y = a5_y + -dt4*dt4*r4*0.5*sin(t4) + ddt4*r4*0.5*cos(t4);
+a4_x = zeros(size(t2));
+a4_y = zeros(size(t2));
 
-a7_x = -dt7*dt7*r7*0.5*cos(t7) + -ddt7*r7*0.5*sin(t7);
-a7_y = -dt7*dt7*r7*0.5*sin(t7) + ddt7*r7*0.5*cos(t7);
+a7_x = zeros(size(t2));
+a7_y = zeros(size(t2));
 
-a6_x = a7_x + -dt6*dt6*r6*0.5*cos(t6) + -ddt6*r6*0.5*sin(t6);
-a6_y = a7_y + -dt6*dt6*r2*0.5*sin(t6) + ddt6*r6*0.5*cos(t6);
+a6_x = zeros(size(t2));
+a6_y = zeros(size(t2));
 
-a8_x = a7_x + -dt8*dt8*r3*0.5*cos(t8) + -ddt8*r8*0.5*sin(t8);
-a8_y = a7_y + -dt8*dt8*r8*0.5*sin(t8) + ddt8*r8*0.5*cos(t8);
+a8_x = zeros(size(t2));
+a8_y = zeros(size(t2));
 
-a9_x = -dt9*dt9*r9*0.5*cos(t9) + -ddt9*r9*0.5*sin(t9);
-a9_y = -dt9*dt9*r9*0.5*sin(t9) + ddt9*r9*0.5*cos(t9);
+a9_x = zeros(size(t2));
+a9_y = zeros(size(t2));
 
-a10_x = a9_x + -dt10*dt10*r10*0.5*cos(t10) + -ddt10*r10*0.5*sin(t10);
-a10_y = a9_y + -dt10*dt10*r10*0.5*sin(t10) + ddt10*r10*0.5*cos(t10);
+a10_x = zeros(size(t2));
+a10_y = zeros(size(t2));
 
-a11_x = -dt11*dt11*r11*0.5*cos(t11) + -ddt11*r11*0.5*sin(t11);
-a11_y = -dt11*dt11*r11*0.5*sin(t11) + ddt11*r11*0.5*cos(t11);
+a11_x = zeros(size(t2));
+a11_y = zeros(size(t2));
 
-a12_x = a2_x + -dt12*dt12*r12*0.5*cos(t12) + -ddt12*r12*0.5*sin(t12);
-a12_y = a2_y + -dt12*dt12*r12*0.5*sin(t12) + ddt12*r12*0.5*cos(t12);
+a12_x = zeros(size(t2));
+a12_y = zeros(size(t2));
             
 t_size = size(t,1);
 
 for k=1:t_size
+
+a2_x(k) = -dt2(k)*dt2(k)*r2*0.5*cos(t2(k)) + -ddt2*r2*0.5*sin(t2(k));
+a2_y(k) = -dt2(k)*dt2(k)*r2*0.5*sin(t2(k)) + ddt2*r2*0.5*cos(t2(k));
+
+a3_x(k) = a2_x(k) + -dt3(k)*dt3(k)*r3*0.5*cos(t3(k)) + -ddt3(k)*r3*0.5*sin(t3(k));
+a3_y(k) = a2_y(k) + -dt3(k)*dt3(k)*r3*0.5*sin(t3(k)) + ddt3(k)*r3*0.5*cos(t3(k));
+
+a5_x(k) = -dt5(k)*dt5(k)*r5*0.5*cos(t5(k)) + -ddt5(k)*r5*0.5*sin(t5(k));
+a5_y(k) = -dt5(k)*dt5(k)*r5*0.5*sin(t5(k)) + ddt5(k)*r5*0.5*cos(t5(k));
+
+a4_x(k) = a5_x(k) + -dt4(k)*dt4(k)*r4*0.5*cos(t4(k)) + -ddt4(k)*r4*0.5*sin(t4(k));
+a4_y(k) = a5_y(k) + -dt4(k)*dt4(k)*r4*0.5*sin(t4(k)) + ddt4(k)*r4*0.5*cos(t4(k));
+
+a7_x(k) = -dt7(k)*dt7(k)*r7*0.5*cos(t7(k)) + -ddt7(k)*r7*0.5*sin(t7(k));
+a7_y(k) = -dt7(k)*dt7(k)*r7*0.5*sin(t7(k)) + ddt7(k)*r7*0.5*cos(t7(k));    
+  
+a6_x(k) = a7_x(k) + -dt6(k)*dt6(k)*r6*0.5*cos(t6(k)) + -ddt6(k)*r6*0.5*sin(t6(k));
+a6_y(k) = a7_y(k) + -dt6(k)*dt6(k)*r2*0.5*sin(t6(k)) + ddt6(k)*r6*0.5*cos(t6(k));
+
+a8_x(k) = a7_x(k) + -dt8(k)*dt8(k)*r3*0.5*cos(t8(k)) + -ddt8(k)*r8*0.5*sin(t8(k));
+a8_y(k) = a7_y(k) + -dt8(k)*dt8(k)*r8*0.5*sin(t8(k)) + ddt8(k)*r8*0.5*cos(t8(k));
+
+a9_x(k) = -dt9(k)*dt9(k)*r9*0.5*cos(t9(k)) + -ddt9(k)*r9*0.5*sin(t9(k));
+a9_y(k) = -dt9(k)*dt9(k)*r9*0.5*sin(t9(k)) + ddt9(k)*r9*0.5*cos(t9(k));
+
+a10_x(k) = a9_x(k) + -dt10(k)*dt10(k)*r10*0.5*cos(t10(k)) + -ddt10(k)*r10*0.5*sin(t10(k));
+a10_y(k) = a9_y(k) + -dt10(k)*dt10(k)*r10*0.5*sin(t10(k)) + ddt10(k)*r10*0.5*cos(t10(k));
+
+a11_x(k) = -dt11(k)*dt11(k)*r11*0.5*cos(t11(k)) + -ddt11(k)*r11*0.5*sin(t11(k));
+a11_y(k) = -dt11(k)*dt11(k)*r11*0.5*sin(t11(k)) + ddt11(k)*r11*0.5*cos(t11(k));
+
+a12_x(k) = a2_x(k)+ -dt12(k)*dt12(k)*r12*0.5*cos(t12(k)) + -ddt12(k)*r12*0.5*sin(t12(k));
+a12_y(k) = a2_y(k) + -dt12(k)*dt12(k)*r12*0.5*sin(t12(k)) + ddt12(k)*r12*0.5*cos(t12(k));
+    
     
     A = [1 0 -1 0 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
          0 1 0 -1 0 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
@@ -130,7 +164,7 @@ for k=1:t_size
          m11*a11_y(k);
          m12*a12_x(k);
          m12*a12_y(k);
-         I2*ddt2(k);
+         I2*ddt2;
          I3*ddt3(k)*2/r3;
          I4*ddt4(k)*2/r4;
          I5*ddt5(k)*2/r5;
@@ -142,7 +176,7 @@ for k=1:t_size
          I11*ddt11(k)*2/r11;
          I12*ddt12(k)*2/r12];
     
-    x = A/B;
+    x = A\B;
     
     F1_2_x(k) = x(1);
     F1_2_y(k) = x(2);
