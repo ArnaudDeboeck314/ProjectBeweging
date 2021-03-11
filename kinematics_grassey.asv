@@ -91,7 +91,7 @@ for k=1:t_size
     A = [0, 0, 0, 0, 0, 0, 0, 0, r11*sin(t11(k)), -r12*sin(t12(k));
          0, 0, 0, 0, 0, 0, 0, 0, -r11*cos(t11(k)), r12*cos(t12(k));
          0, 0, 0, 0, -r7*sin(t7(k)), r8*sin(t8(k)), -r9*sin(t9(k)), 0, 0, 0;
-         0, 0, 0, 0, r7*cos(t7(k)), -r8*cos(t*(k)), r9*cos(t9(k)), 0, 0, 0;
+         0, 0, 0, 0, r7*cos(t7(k)), -r8*cos(t8(k)), r9*cos(t9(k)), 0, 0, 0;
          0, -r4*sin(t4(k)), -r5*sin(t5(k)), r6*sin(t6(k)), r7*sin(t7(k)), 0, 0, 0, 0, 0;
          0, r4*cos(t4(k)), r5*cos(t5(k)), -r6*cos(t6(k)), -r7*cos(t7(k)), 0, 0, 0, 0, 0;
          0, 0, 0, 0, 0, 0, -r9*sin(t9(k)), -r10*sin(t10(k)), r11*sin(t11(k)), 0;
@@ -100,16 +100,17 @@ for k=1:t_size
          -r3*cos(t3(k)), 0, r5*cos(t5(k)), 0, 0, 0, 0, 0, 0, 0;];
 
     
-    B = [-r11*cos(t11(k))*dt11(k)^2 + r12*cos(t12(k))*dt12(k)^2 + r2*cos(t2(k))*dt2^2 + r2*sin(t2(k))*ddt2;
-         -r11*sin(t11(k))*dt11(k)^2 + r12*sin(t12(k))*dt12(k)^2 + r2*sin(t2(k))*dt2^2 - r2*cos(t2(k))*ddt2;
-         r7*cos(t7(k))*dt7(k)^2 - r8*cos(t8(k))*dt8(k)^2 + r7*cos(t7(k))*dt7(k)^2;
+    B = [-r11*cos(t11(k))*dt11(k)^2+r12*cos(t12(k))*dt12(k)^2+r2*cos(t2)*dt2^2+r2*sin(t2)*ddt2;
+         -r11*sin(t11(k))*dt11(k)^2+r12*sin(t12(k))*dt12(k)^2+r2*sin(t2)*dt2^2-r2*cos(t2)*ddt2;
+         r7*cos(t7(k))*dt7(k)^2-r8*cos(t8(k))*dt8(k)^2 + r7*cos(t7(k))*dt7(k)^2;
          r7*sin(t7(k))*dt7(k)^2 - r8*sin(t8(k))*dt8(k)^2 + r7*sin(t7(k))*dt7(k)^2;
          r4*cos(t4(k))*dt4(k)^2 + r5*cos(t5(k))*dt5(k)^2 - r6*cos(t6(k))*dt6(k)^2 - r7*cos(t7(k))*dt7(k)^2;
-         0;
-         0;
-         0;
-         0;
-         0;];
+         r4*sin(t4(k))*dt4(k)^2+r5*sin(t5(k))*dt5(k)^2-r6*sin(t6(k))*dt6(k)^2-r7*sin(t7(k))*dt7^2;
+         r9*cos(t9(k))*dt9(k)^2+r10*cos(t10(k))*dt10(k)^2-r11*cos(t11(k))*dt11(k)^2;
+         r9*sin(t9(k))*dt9(k)^2+r10*sin(t10(k))*dt10(k)^2-r11*sin(t11(k))*dt11(k)^2;
+         -r3*cos(t3(k))*dt3(k)^2+r5*cos(t5(k))*dt5(k)^2+r2*cos(t2)*dt2^2 + r2*sin(t2)*ddt2;
+         -r3*sin(t3(k))*dt3(k)^2+r5*sin(t5(k))*dt5(k)^2+r2*sin(t2)*dt2^2 - r2*cos(t2)*ddt2;
+         ];
     
     x = A\B;
     
