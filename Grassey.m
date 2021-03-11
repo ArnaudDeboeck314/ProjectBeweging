@@ -45,6 +45,7 @@ t = [t_begin:Ts:t_end]';
 
 t2=1.4+omega*t;               
 dt2=omega+0*t;
+ddt2 = 0;
 
 t_init = [1.8 1.1 2.8 2.9 1.1 1.9 2.7 0.4 1.3 2.3];
 
