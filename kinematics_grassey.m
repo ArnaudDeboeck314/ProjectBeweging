@@ -1,4 +1,4 @@
-function [t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,dt11,dt12] = kinematics_grassey(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,t1,t2,dt2,t_init,t)
+function [t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,dt11,dt12,ddt3,ddt4,ddt5,ddt6,ddt7,ddt8,ddt9,ddt10,ddt11,ddt12] = kinematics_grassey(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,t1,t2,dt2,t_init,t)
 
 t3 = zeros(size(t));
 t4 = zeros(size(t));
@@ -21,6 +21,17 @@ dt9 = zeros(size(t));
 dt10 = zeros(size(t));
 dt11 = zeros(size(t));
 dt12 = zeros(size(t));
+
+ddt3 = zeros(size(t));
+ddt4 = zeros(size(t));
+ddt5 = zeros(size(t));
+ddt6 = zeros(size(t));
+ddt7 = zeros(size(t));
+ddt8 = zeros(size(t));
+ddt9 = zeros(size(t));
+ddt10 = zeros(size(t));
+ddt11 = zeros(size(t));
+ddt12 = zeros(size(t));
 
 optim_options = optimset('Display','off');
 
@@ -76,6 +87,23 @@ for k=1:t_size
     dt10(k) = x(8);
     dt11(k) = x(9);
     dt12(k) = x(10);
+    
+    A = ;
+    
+    B = ;
+    
+    x = A\B;
+    
+    ddt3(k) = x(1);
+    ddt4(k) = x(2);
+    ddt5(k) = x(3);
+    ddt6(k) = x(4);
+    ddt7(k) = x(5);
+    ddt8(k) = x(6);
+    ddt9(k) = x(7);
+    ddt10(k) = x(8);
+    ddt11(k) = x(9);
+    ddt12(k) = x(10);
     
     t_init = [t3(k) + Ts*dt3(k), t4(k) + Ts*dt4(k), t5(k) + Ts*dt5(k), t6(k) + Ts*dt6(k), t7(k) + Ts*dt7(k),
               t8(k) + Ts*dt8(k), t9(k) + Ts*dt9(k), t10(k) + Ts*dt10(k), t11(k) + Ts*dt11(k), t12(k) + Ts*dt12(k)]; 
