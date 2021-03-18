@@ -16,9 +16,11 @@ close all
 
 % program parameters 
 % (1 if the plot needs to be done 0 if it doesn't)
-plot_kin = 1;
-plot_dyn = 1;
-plot_mov = 1;
+plot_kin = 0;
+plot_dyn = 0;
+plot_mov = 0;
+plot_kinCheck = 0;
+plot_dynCheck = 0;
 
 
 % kinematic parameters (link lengths) 
@@ -65,9 +67,6 @@ I12 = m12*r12^2/12;
 % #####################################################
 % 1) Kinematic analyse
 % #####################################################
-
-
-
 omega = 0.15;
 t_begin = 0;
 t_end = round(2*2*pi/omega,0);
@@ -92,6 +91,10 @@ ddt2 = 0; % second derivative
 % #####################################################
 % 2) Control of kinematic calculation 
 % #####################################################
+kinematics_check(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,...
+               t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,dt2,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,...
+            dt11,dt12,ddt2,ddt3,ddt4,ddt5,ddt6,ddt7,ddt8,ddt9,ddt10,ddt11,ddt12, t, plot_kinCheck)
+
 
 % #####################################################
 % 3) Dynamic calculation 
