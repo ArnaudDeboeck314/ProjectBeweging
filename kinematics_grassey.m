@@ -134,8 +134,8 @@ for k=1:t_size
     
     B = [-r11*cos(t11(k))*dt11(k)^2+r12*cos(t12(k))*dt12(k)^2+r2*cos(t2(k))*dt2(k)^2+r2*sin(t2(k))*ddt2;
          -r11*sin(t11(k))*dt11(k)^2+r12*sin(t12(k))*dt12(k)^2+r2*sin(t2(k))*dt2(k)^2-r2*cos(t2(k))*ddt2;
-         r7*cos(t7(k))*dt7(k)^2-r8*cos(t8(k))*dt8(k)^2+r7*cos(t7(k))*dt7(k)^2;
-         r7*sin(t7(k))*dt7(k)^2-r8*sin(t8(k))*dt8(k)^2+r7*sin(t7(k))*dt7(k)^2;
+         r7*cos(t7(k))*dt7(k)^2-r8*cos(t8(k))*dt8(k)^2+r9*cos(t9(k))*dt9(k)^2;
+         r7*sin(t7(k))*dt7(k)^2-r8*sin(t8(k))*dt8(k)^2+r9*sin(t9(k))*dt9(k)^2;
          r4*cos(t4(k))*dt4(k)^2+r5*cos(t5(k))*dt5(k)^2-r6*cos(t6(k))*dt6(k)^2-r7*cos(t7(k))*dt7(k)^2;
          r4*sin(t4(k))*dt4(k)^2+r5*sin(t5(k))*dt5(k)^2-r6*sin(t6(k))*dt6(k)^2-r7*sin(t7(k))*dt7(k)^2;
          r9*cos(t9(k))*dt9(k)^2+r10*cos(t10(k))*dt10(k)^2-r11*cos(t11(k))*dt11(k)^2;
