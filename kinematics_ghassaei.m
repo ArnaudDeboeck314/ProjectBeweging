@@ -7,7 +7,7 @@
 % #####################################################
 function [t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,...
             dt11,dt12,ddt3,ddt4,ddt5,ddt6,ddt7,ddt8,ddt9,ddt10,ddt11,ddt12] ...
-            = kinematics_grassey(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,t1,t2,dt2,ddt2,t_init,t,plot_kin)
+            = kinematics_ghassaei(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,t1,t2,dt2,ddt2,t_init,t,plot_kin)
 
 t3 = zeros(size(t));
 t4 = zeros(size(t));
@@ -62,7 +62,7 @@ for k=1:t_size
     % argument a1 ... phi1: constants
     % return value x: solution for the unknown angles phi3 and phi4
     % return exitflag: indicates convergence of algorithm
-    [x, ~, exitflag] = fsolve('Loop_closure_Grassey',t_init',optim_options,t2(k),r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,t1);
+    [x, ~, exitflag] = fsolve('Loop_closure_ghassaei',t_init',optim_options,t2(k),r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,t1);
     
     if (exitflag ~= 1)
         disp 'The fsole exit flag was not 1, probably no convergence!'
@@ -216,7 +216,7 @@ for m=1:length(index_vec)
 end
 
 % save movie
-save Grassey_movie Movie
+save ghassaei_movie Movie
 close(10)
 
 % #### PLOTS ####
