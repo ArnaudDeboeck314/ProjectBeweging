@@ -33,6 +33,7 @@ A4 = zeros(size(t));
 
 B1 = zeros(size(t));
 B2 = zeros(size(t));
+B3= zeros(size(t));
 
 C1 = zeros(size(t));
 C2 = zeros(size(t));
@@ -51,35 +52,20 @@ for k=1:t_size
     %loop1
     B1(k) = A1(k) + r1 * exp(j*t1);
     C1(k) = B1(k) + r2 * exp(j*t2(k));
-    H1(k) = C1(k) - r12 * exp(j*t12(k));
+    H1(k) = C1(k) + r12 * exp(j*t12(k));
     A2(k) = H1(k) - r11 * exp(j*t11(k));
    
     H2(k) = A1(k) + r11 * exp(j*t11(k));
-    C2(k) = H2(k) + r12 * exp(j*t12(k));
+    C2(k) = H2(k) - r12 * exp(j*t12(k));
     B2(k) = C2(k) - r2 * exp(j*t2(k));
     A3(k) = B2(k) - r1 * exp(j*t1);
     
     %loop 2
-    D1(k) = C1(k) + r3 * exp(j*t3(k));
-    A4(k) = D1(k) - r4 * exp(j*t4(k));
-    D2(k) = A1(k) + r4 * exp(j*t4(k));
-    C3(k) = D2(k) - r3 * exp(j*t3(k));
+    B3(k) = A1(k) + r1 * exp(j*t1);
+    C3(k) = B3(k) + r2 * exp(j*t2(k));
+    D1(k) = C3(k) - r3 * exp(j*t3(k));
+    A4(k) = D1(k) + r5 * exp(j*t5(k));
 
-end
-
-disp C1
-for k=1:10
-   disp(C1(k)) 
-end
-
-disp C2
-for k=1:10
-   disp(C2(k)) 
-end
-
-disp C3
-for k=1:10
-   disp(C3(k)) 
 end
 
 % ##############

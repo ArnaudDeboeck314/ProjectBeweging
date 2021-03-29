@@ -19,7 +19,7 @@ close all
 plot_kin = 0;
 plot_dyn = 0;
 plot_mov = 0;
-plot_kinCheck = 0;
+plot_kinCheck = 1;
 plot_dynCheck = 0;
 
 
@@ -70,7 +70,7 @@ I12 = m12*r12^2/12;
 omega = 0.15;
 t_begin = 0;
 t_end = round(2*2*pi/omega,0);
-Ts = 0.005;
+Ts = 0.01;
 t = [t_begin:Ts:t_end]';
 
 %t1=cte
