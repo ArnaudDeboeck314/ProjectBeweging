@@ -16,9 +16,9 @@ close all
 
 % program parameters 
 % (1 if the plot needs to be done 0 if it doesn't)
-plot_kin = 0;
-plot_dyn = 0;
-plot_mov = 0;
+plot_kin = 1;
+plot_dyn = 1;
+plot_mov = 1;
 plot_kinCheck = 1;
 plot_dynCheck = 0;
 
@@ -70,7 +70,7 @@ I12 = m12*r12^2/12;
 omega = 0.15;
 t_begin = 0;
 t_end = round(2*2*pi/omega,0);
-Ts = 0.01;
+Ts = 0.005;
 t = [t_begin:Ts:t_end]';
 
 %t1=cte
@@ -82,7 +82,7 @@ t_init = [1.8 1.1 2.8 2.9 1.1 1.9 2.7 0.4 1.3 2.3];
 %t2 "changing" corner
 t2=1.4+omega*t; 
 dt2=omega + 0*t; % first derivative
-ddt2 = 0; % second derivative
+ddt2 = 0*t; % second derivative
 
 % calculate the kinematics
 [t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,dt11,dt12,ddt3,ddt4,ddt5,ddt6,ddt7,ddt8,ddt9,ddt10,...

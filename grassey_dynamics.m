@@ -112,8 +112,8 @@ v11_y(k) = dt11(k)*r11*0.5*cos(t11(k));
 v12_x(k) = v2_x(k) - dt12(k)*r12*0.5*sin(t12(k));
 v12_y(k) = v2_y(k) + dt12(k)*r12*0.5*cos(t12(k));
     
-a2_x(k) = -dt2(k)*dt2(k)*r2*0.5*cos(t2(k)) + -ddt2*r2*0.5*sin(t2(k));
-a2_y(k) = -dt2(k)*dt2(k)*r2*0.5*sin(t2(k)) + ddt2*r2*0.5*cos(t2(k));
+a2_x(k) = -dt2(k)*dt2(k)*r2*0.5*cos(t2(k)) + -ddt2(k)*r2*0.5*sin(t2(k));
+a2_y(k) = -dt2(k)*dt2(k)*r2*0.5*sin(t2(k)) + ddt2(k)*r2*0.5*cos(t2(k));
 a3_x(k) = a2_x(k) + -dt3(k)*dt3(k)*r3*0.5*cos(t3(k)) + -ddt3(k)*r3*0.5*sin(t3(k));
 a3_y(k) = a2_y(k) + -dt3(k)*dt3(k)*r3*0.5*sin(t3(k)) + ddt3(k)*r3*0.5*cos(t3(k));
 a5_x(k) = -dt5(k)*dt5(k)*r5*0.5*cos(t5(k)) + -ddt5(k)*r5*0.5*sin(t5(k));
@@ -192,7 +192,7 @@ a12_y(k) = a2_y(k) + -dt12(k)*dt12(k)*r12*0.5*sin(t12(k)) + ddt12(k)*r12*0.5*cos
          m11*a11_y(k);
          m12*a12_x(k);
          m12*a12_y(k);
-         I2*ddt2;
+         I2*ddt2(k);
          I3*ddt3(k)*2/r3;
          I4*ddt4(k)*2/r4;
          I5*ddt5(k)*2/r5;
@@ -242,7 +242,7 @@ a12_y(k) = a2_y(k) + -dt12(k)*dt12(k)*r12*0.5*sin(t12(k)) + ddt12(k)*r12*0.5*cos
     
     %controle dynamica
 
-     P2 = m2*(a2_x(k)*v2_x(k) + a2_y(k)*v2_y(k)) + I2*ddt2*dt2(k);
+     P2 = m2*(a2_x(k)*v2_x(k) + a2_y(k)*v2_y(k)) + I2*ddt2(k)*dt2(k);
      P3 = m3*(a3_x(k)*v3_x(k) + a3_y(k)*v3_y(k)) + I3*ddt3(k)*dt3(k);
      P4 = m4*(a4_x(k)*v4_x(k) + a4_y(k)*v4_y(k)) + I4*ddt4(k)*dt4(k);
      P5 = m5*(a5_x(k)*v5_x(k) + a5_y(k)*v5_y(k)) + I5*ddt5(k)*dt5(k);
