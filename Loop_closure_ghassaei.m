@@ -1,4 +1,4 @@
-function P = Loop_closure_Grassey(t_init,t2,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,t1)
+function P = Loop_closure_ghassaei(t_init,t2,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,t1)
 
 t3 = t_init(1);
 t4 = t_init(2);

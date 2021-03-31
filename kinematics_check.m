@@ -40,7 +40,6 @@ C2 = zeros(size(t));
 C3 = zeros(size(t));
 
 D1 = zeros(size(t));
-D2 = zeros(size(t));
 
 H1 = zeros(size(t));
 H2 = zeros(size(t));
@@ -111,6 +110,46 @@ if plot_kinCheck
     xlabel('time [s]')
     ylabel('imag(A1)-imag(A4)')
     axis tight
+    
+    %point B
+    subplot(4,6,7)
+    plot(t,real(B1)-real(B2))
+    xlabel('time [s]')
+    ylabel('real(B1)-real(B2)')
+    axis tight
+    
+    subplot(4,6,8)
+    plot(t,imag(B1)-imag(B2))
+    xlabel('time [s]')
+    ylabel('imag(B1)-imag(B2)')
+    axis tight
+    
+    %point C
+    subplot(2,6,9)
+    plot(t,real(C1)-real(C2))
+    xlabel('time [s]')
+    ylabel('real(C1)-real(C2)')
+    axis tight
+    
+    subplot(2,6,10)
+    plot(t,imag(C1)-imag(C2))
+    xlabel('time [s]')
+    ylabel('imag(C1)-imag(C2)')
+    axis tight
+    
+    %point H
+    subplot(2,6,11)
+    plot(t,real(H1)-real(H2))
+    xlabel('time [s]')
+    ylabel('real(H1)-real(H2)')
+    axis tight
+    
+    subplot(2,6,12)
+    plot(t,imag(H1)-imag(H2))
+    xlabel('time [s]')
+    ylabel('imag(H1)-imag(H2)')
+    axis tight
+   
     
     
 end    
