@@ -237,9 +237,6 @@ axis tight
 
 %acceleration 
 
-acc_H1 = cross(omega11,cross(omega11,AH)) + cross(alpha11,AH);
-acc_H2 = cross(omega2,cross(omega2,BC)) + cross(alpha2,BC) - cross(omega12,cross(omega12,HC)) - cross(alpha12,HC);
-
 acc_C1 = acc_H1 + cross(omega12,cross(omega12,HC)) + cross(alpha12,HC);
 acc_C2 = cross(omega2,cross(omega2,BC)) + cross(alpha2,BC);
 acc_C3 = cross(omega4,cross(omega4,AD)) + cross(alpha4,AD) - cross(omega3,cross(omega3,CD)) - cross(alpha3,CD);

@@ -16,9 +16,9 @@ close all
 
 % program parameters 
 % (1 if the plot needs to be done 0 if it doesn't)
-plot_kin = 1;
-plot_dyn = 1;
-plot_mov = 1;
+plot_kin = 0;
+plot_dyn = 0;
+plot_mov = 0;
 plot_kinCheck = 1;
 plot_dynCheck = 0;
 
@@ -70,7 +70,7 @@ I12 = m12*r12^2/12;
 omega = 0.15;
 t_begin = 0;
 t_end = round(2*2*pi/omega,0);
-Ts = 0.005;
+Ts = 0.05;
 t = [t_begin:Ts:t_end]';
 
 %t1=cte
