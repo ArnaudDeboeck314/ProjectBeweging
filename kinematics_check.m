@@ -168,7 +168,6 @@ omega6 = [zeros(size(t2)) zeros(size(t2)) dt6];
 omega11 = [zeros(size(t2)) zeros(size(t2)) dt11];
 omega12 = [zeros(size(t2)) zeros(size(t2)) dt12];
 
-disp(omega2)
 %corner acceleration
 alpha2 = [zeros(size(t2)) zeros(size(t2)) ddt2];
 alpha3 = [zeros(size(t2)) zeros(size(t2)) ddt3];
@@ -181,8 +180,8 @@ alpha12 = [zeros(size(t2)) zeros(size(t2)) ddt12];
 %length
 BC = [r2*cos(t2) r2*sin(t2) zeros(size(t2))];
 CD = [r3*cos(t3) r3*sin(t3) zeros(size(t2))];
-AD = [r4*cos(t4) r4*sin(t4) zeros(size(t2))];
-DE = [r5*cos(t5) r5*sin(t5) zeros(size(t2))];
+AD = [r4*cos(t5) r4*sin(t5) zeros(size(t2))];
+DE = [r5*cos(t4) r5*sin(t4) zeros(size(t2))];
 EF = [r6*cos(t6) r6*sin(t6) zeros(size(t2))];
 AF = [r7*cos(t11) r7*sin(t11) zeros(size(t2))];
 AH = [r11*cos(t11) r11*sin(t11) zeros(size(t2))];
@@ -190,50 +189,52 @@ HC = [r12*cos(t12) r12*sin(t12) zeros(size(t2))];
 
 %Calculate velocity of a point starting from 2 different points
 
-vel_A1 = 0 + cross(omega2,BC) - cross(omega3,CD) + cross(omega4,AD) ;
+vel_A1 = 0 + cross(omega2,BC) - cross(omega3,CD) + cross(omega5,AD) ;
 vel_A2 = 0 + cross(omega2,BC) + cross(omega12,HC) - cross(omega11,AH);
-vel_A3 = - cross(omega4,AD) - cross(omega5,DE) + cross(omega6,EF) + cross(omega11, AF);
+vel_A3 = - cross(omega5,AD) - cross(omega4,DE) + cross(omega6,EF) + cross(omega11, AF);
 
-vel_B1 = cross(omega2,BC) - cross(omega3,CD) + cross(omega4,AD) +0 ;
+vel_B1 = cross(omega2,BC) - cross(omega3,CD) + cross(omega5,AD) +0 ;
 vel_B2 = cross(omega2,BC) + cross(omega12,HC) - cross(omega11,AH) + 0;
 
-vel_C1 = cross(omega11,AH) + cross(omega12,HC);
-vel_C2 = cross(omega2,BC);
-vel_C3 = cross(omega4,AD) - cross(omega3,CD);
+vel_C1 = cross(omega11,AH) - cross(omega12,HC);
+vel_C2 = 0 + cross(omega2,BC);
+vel_C3 = -cross(omega5,AD) + cross(omega3,CD);
 
 
 
 % plot errors 
-figure
-subplot(3,2,1)
-plot(t,vel_A1 - vel_A2)
-xlabel('t [s]')
-ylabel('vel_{A1} - vel_{A2} [m/s] ')
-axis tight
+if plot_kinCheck
+    figure
+    subplot(3,2,1)
+    plot(t,vel_A1 - vel_A2)
+    xlabel('t [s]')
+    ylabel('vel_{A1} - vel_{A2} [m/s] ')
+    axis tight
 
-subplot(3,2,2)
-plot(t,vel_A1 - vel_A3)
-xlabel('t [s]')
-ylabel('vel_{A1} - vel_{A3} [m/s] ')
-axis tight
+    subplot(3,2,2)
+    plot(t,vel_A1 - vel_A3)
+    xlabel('t [s]')
+    ylabel('vel_{A1} - vel_{A3} [m/s] ')
+    axis tight
 
-subplot(3,2,3)
-plot(t,vel_B1 - vel_B2)
-xlabel('t [s]')
-ylabel('vel_{B1} - vel_{B2} [m/s] ')
-axis tight
+    subplot(3,2,3)
+    plot(t,vel_B1 - vel_B2)
+    xlabel('t [s]')
+    ylabel('vel_{B1} - vel_{B2} [m/s] ')
+    axis tight
 
-subplot(3,2,4)
-plot(t,vel_C1 - vel_C2)
-xlabel('t [s]')
-ylabel('vel_{C1} - vel_{C2} [m/s] ')
-axis tight
+    subplot(3,2,4)
+    plot(t,vel_C1 - vel_C2)
+    xlabel('t [s]')
+    ylabel('vel_{C1} - vel_{C2} [m/s] ')
+    axis tight
 
-subplot(3,2,5)
-plot(t,vel_C1 - vel_C3)
-xlabel('t [s]')
-ylabel('vel_{C1} - vel_{C3} [m/s] ')
-axis tight
+    subplot(3,2,5)
+    plot(t,vel_C1 - vel_C3)
+    xlabel('t [s]')
+    ylabel('vel_{C1} - vel_{C3} [m/s] ')
+    axis tight
+end
 
 %acceleration 
 
@@ -252,36 +253,40 @@ acc_B1 = acc_C1 - cross(omega2,cross(omega2,BC)) - cross(alpha2,BC);
 acc_B2 = acc_C2 - cross(omega12,cross(omega12,HC)) - cross(alpha12,HC) - acc_H1; 
 
 %plot errors 
-figure
-subplot(5,2,1)
-plot(t,acc_A1 - acc_A2)
-xlabel('t [s]')
-ylabel('acc_{A1} - acc_{A2} [m/s^2] ')
-axis tight
+acc = 0
 
-subplot(5,2,2)
-plot(t,acc_A1 - acc_A3)
-xlabel('t [s]')
-ylabel('acc_{A1} - acc_{A3} [m/s^2] ')
-axis tight
+if acc
+    figure
+    subplot(5,2,1)
+    plot(t,acc_A1 - acc_A2)
+    xlabel('t [s]')
+    ylabel('acc_{A1} - acc_{A2} [m/s^2] ')
+    axis tight
 
-subplot(5,2,3)
-plot(t,acc_B1 - acc_B2)
-xlabel('t [s]')
-ylabel('acc_{B1} - acc_{B2} [m/s^2] ')
-axis tight
+    subplot(5,2,2)
+    plot(t,acc_A1 - acc_A3)
+    xlabel('t [s]')
+    ylabel('acc_{A1} - acc_{A3} [m/s^2] ')
+    axis tight
 
-subplot(5,2,4)
-plot(t,acc_C1 - acc_C2)
-xlabel('t [s]')
-ylabel('acc_{C1} - acc_{C2} [m/s^2] ')
-axis tight
+    subplot(5,2,3)
+    plot(t,acc_B1 - acc_B2)
+    xlabel('t [s]')
+    ylabel('acc_{B1} - acc_{B2} [m/s^2] ')
+    axis tight
 
-subplot(5,2,5)
-plot(t,acc_C1 - acc_C3)
-xlabel('t [s]')
-ylabel('acc_{C1} - acc_{C3} [m/s^2] ')
-axis tight
+    subplot(5,2,4)
+    plot(t,acc_C1 - acc_C2)
+    xlabel('t [s]')
+    ylabel('acc_{C1} - acc_{C2} [m/s^2] ')
+    axis tight
+
+    subplot(5,2,5)
+    plot(t,acc_C1 - acc_C3)
+    xlabel('t [s]')
+    ylabel('acc_{C1} - acc_{C3} [m/s^2] ')
+    axis tight
+end
         
 end
 
