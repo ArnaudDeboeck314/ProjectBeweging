@@ -1,5 +1,5 @@
 function [F1_2_x,F1_2_y,F2_12_x,F2_12_y,F2_3_x,F2_3_y,F3_4_x,F3_4_y,F3_5_x,F3_5_y,F4_6_x,F4_6_y,F6_7_x,F6_7_y,F6_8_x,F6_8_y,F8_9_x, ...
-          F8_9_y,F8_10_x,F8_10_y,F12_10_x,F12_10_y,F12_11_x,F12_11_y,F1_5_x,F1_5_y,F1_7_x,F1_7_y,F1_9_x,F1_9_y,F1_11_x,F1_11_y,M_2,M_2c,L_x] = ...
+          F8_9_y,F8_10_x,F8_10_y,F12_10_x,F12_10_y,F12_11_x,F12_11_y,F1_5_x,F1_5_y,F1_7_x,F1_7_y,F1_9_x,F1_9_y,F1_11_x,F1_11_y,M_2,M_2c,L_x,L_y] = ...
           ghassaei_dynamics(t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,ddt2,ddt3,ddt4,ddt5,ddt6,ddt7,ddt8,ddt9,ddt10,ddt11,ddt12,dt2,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,dt11,dt12, ...
                            r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,I2,I3,I4,I5,I6,I7,I8,I9,I10,I11,I12,t)
 
@@ -40,6 +40,7 @@ M_2 = zeros(size(t2));
 M_2c = zeros(size(t2));
 
 L_x = zeros(size(t2));
+L_y = zeros(size(t2));
 
 v2_x = zeros(size(t2));
 v2_y = zeros(size(t2));
@@ -259,7 +260,8 @@ a12_y(k) = a2_y(k)*2 + -dt12(k)*dt12(k)*r12*0.5*sin(t12(k)) + ddt12(k)*r12*0.5*c
     
      M_2c(k) =(P2 + P3 + P4 + P5 + P6 + P7 + P8 + P9 + P10 + P11 + P12)/dt2(k);
     
-     L_x(k) = -(m2*a2_x(k) + m3*a3_x(k) + m4*a4_x(k) + m5*a5_x(k) + m6*a7_x(k) + m7*a7_x(k) + m8*a8_x(k) + m9*a9_x(k) + m10*a10_x(k) + m11*a11_x(k) + m12*a12_x(k)); 
+     L_x(k) = -(m2*a2_x(k) + m3*a3_x(k) + m4*a4_x(k) + m5*a5_x(k) + m6*a6_x(k) + m7*a7_x(k) + m8*a8_x(k) + m9*a9_x(k) + m10*a10_x(k) + m11*a11_x(k) + m12*a12_x(k));
+     L_y(k) = -(m2*a2_y(k) + m3*a3_y(k) + m4*a4_y(k) + m5*a5_y(k) + m6*a6_y(k) + m7*a7_y(k) + m8*a8_y(k) + m9*a9_y(k) + m10*a10_y(k) + m11*a11_y(k) + m12*a12_y(k));
      
 end
 
