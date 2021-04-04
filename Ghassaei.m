@@ -21,6 +21,8 @@ plot_dyn = 0;
 plot_mov = 0;
 plot_kinCheck = 1;
 plot_dynCheck = 0;
+plot_krachten_x1 = 1;
+plot_krachten_x2 = 1;
 
 
 % kinematic parameters (link lengths) 
@@ -108,10 +110,110 @@ kinematics_check(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,...
                        
 % #####################################################
 % 4) Control of dynamic calculation 
-% #####################################################
-                 
+% #####################################################                
+if plot_krachten_x1
+    figure
+    
+    subplot(8,1,1)
+    plot(t,F1_2_x)
+    xlabel('t [s]')
+    ylabel('F1_2_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,2)
+    plot(t,F2_3_x)
+    xlabel('t [s]')
+    ylabel('F2_3_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,3)
+    plot(t,F2_12_x)
+    xlabel('t [s]')
+    ylabel('F2_12_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,4)
+    plot(t,F3_4_x)
+    xlabel('t [s]')
+    ylabel('F3_4_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,5)
+    plot(t,F3_5_x)
+    xlabel('t [s]')
+    ylabel('F1_2_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,6)
+    plot(t,F4_6_x)
+    xlabel('t [s]')
+    ylabel('F4_6_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,7)
+    plot(t,F6_7_x)
+    xlabel('t [s]')
+    ylabel('F6_7_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,8)
+    plot(t,F6_8_x)
+    xlabel('t [s]')
+    ylabel('F6_8_x [m/s] ')
+    axis tight
+end
 
-
+if plot_krachten_x2
+    figure
+    
+    subplot(8,1,1)
+    plot(t,F8_9_x)
+    xlabel('t [s]')
+    ylabel('F8_9_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,2)
+    plot(t,F8_10_x)
+    xlabel('t [s]')
+    ylabel('F8_10_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,3)
+    plot(t,F12_10_x)
+    xlabel('t [s]')
+    ylabel('F12_10_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,4)
+    plot(t,F12_11_x)
+    xlabel('t [s]')
+    ylabel('F12_11_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,5)
+    plot(t,F1_5_x)
+    xlabel('t [s]')
+    ylabel('F1_5_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,6)
+    plot(t,F1_7_x)
+    xlabel('t [s]')
+    ylabel('F1_7_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,7)
+    plot(t,F1_9_x)
+    xlabel('t [s]')
+    ylabel('F1_9_x [m/s] ')
+    axis tight
+    
+    subplot(8,1,8)
+    plot(t,F1_11_x)
+    xlabel('t [s]')
+    ylabel('F1_2_x [m/s] ')
+    axis tight
+end
 % #####################################################
 % 5) Movie 
 % #####################################################
