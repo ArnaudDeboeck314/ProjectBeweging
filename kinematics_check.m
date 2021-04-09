@@ -165,6 +165,7 @@ omega3 = [zeros(size(t2)) zeros(size(t2)) dt3];
 omega4 = [zeros(size(t2)) zeros(size(t2)) dt4];
 omega5 = [zeros(size(t2)) zeros(size(t2)) dt5];
 omega6 = [zeros(size(t2)) zeros(size(t2)) dt6];
+omega7 = [zeros(size(t2)) zeros(size(t2)) dt7];
 omega11 = [zeros(size(t2)) zeros(size(t2)) dt11];
 omega12 = [zeros(size(t2)) zeros(size(t2)) dt12];
 
@@ -183,7 +184,7 @@ CD = [r3*cos(t3) r3*sin(t3) zeros(size(t2))];
 AD = [r4*cos(t5) r4*sin(t5) zeros(size(t2))];
 DE = [r5*cos(t4) r5*sin(t4) zeros(size(t2))];
 EF = [r6*cos(t6) r6*sin(t6) zeros(size(t2))];
-AF = [r7*cos(t11) r7*sin(t11) zeros(size(t2))];
+AF = [r7*cos(t7) r7*sin(t7) zeros(size(t2))];
 AH = [r11*cos(t11) r11*sin(t11) zeros(size(t2))];
 HC = [r12*cos(t12) r12*sin(t12) zeros(size(t2))];
 
@@ -191,7 +192,7 @@ HC = [r12*cos(t12) r12*sin(t12) zeros(size(t2))];
 
 vel_A1 = 0 + cross(omega2,BC) - cross(omega3,CD) + cross(omega5,AD) ;
 vel_A2 = 0 + cross(omega2,BC) + cross(omega12,HC) - cross(omega11,AH);
-vel_A3 = - cross(omega5,AD) - cross(omega4,DE) + cross(omega6,EF) + cross(omega11, AF);
+vel_A3 = - cross(omega5,AD) - cross(omega4,DE) + cross(omega6,EF) + cross(omega7, AF);
 
 vel_B1 = cross(omega2,BC) - cross(omega3,CD) + cross(omega5,AD) +0 ;
 vel_B2 = cross(omega2,BC) + cross(omega12,HC) - cross(omega11,AH) + 0;

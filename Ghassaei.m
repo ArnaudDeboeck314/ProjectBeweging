@@ -26,7 +26,7 @@ plot_krachten_x2 = 0;
 
 
 % kinematic parameters (link lengths) 
-r1 = 53;
+r1 = 75;
 r2 = 26;
 r3 = 56;
 r4 = 77;
