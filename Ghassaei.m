@@ -114,7 +114,7 @@ kinematics_check(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,...
 
 M2 = 10000 + 0*t;
 
-[t_2,dt_2,ddt_2] = Voorwaartse_kinemtica(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,I2,I3,I4,I5,I6,I7,I8,I9,I10,I11,I12,t,Ts,M2,t_init,t1);    
+[t_2,dt_2,ddt_2] = Voorwaartse_dynamica(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,I2,I3,I4,I5,I6,I7,I8,I9,I10,I11,I12,t,Ts,M2,t_init,t1);    
 
 % #####################################################
 % 5) Control of dynamic calculation 
