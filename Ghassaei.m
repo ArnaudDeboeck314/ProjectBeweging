@@ -107,9 +107,17 @@ kinematics_check(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,...
           ghassaei_dynamics(t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,ddt2,ddt3,ddt4,ddt5,ddt6,ddt7,ddt8,ddt9,ddt10,ddt11,...
           ddt12,dt2,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,dt11,dt12,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,m2,m3,m4,m5,m6,m7,m8,m9,m10,...
           m11,m12,I2,I3,I4,I5,I6,I7,I8,I9,I10,I11,I12,t);
-                       
+
 % #####################################################
-% 4) Control of dynamic calculation 
+% 4) Forwards Dynamic calculation 
+% #####################################################
+
+M2 = 10000 + 0*t;
+
+[t_2,dt_2,ddt_2] = Voorwaartse_kinemtica(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,I2,I3,I4,I5,I6,I7,I8,I9,I10,I11,I12,t,Ts,M2,t_init,t1);    
+
+% #####################################################
+% 5) Control of dynamic calculation 
 % #####################################################                
 if plot_krachten_x1
     figure
@@ -215,7 +223,7 @@ if plot_krachten_x2
     axis tight
 end
 % #####################################################
-% 5) Movie 
+% 6) Movie 
 % #####################################################
 if plot_mov     
 figure
