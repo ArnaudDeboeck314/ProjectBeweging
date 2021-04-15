@@ -181,8 +181,8 @@ alpha12 = [zeros(size(t2)) zeros(size(t2)) ddt12];
 %length
 BC = [r2*cos(t2) r2*sin(t2) zeros(size(t2))];
 CD = [r3*cos(t3) r3*sin(t3) zeros(size(t2))];
-AD = [r4*cos(t5) r4*sin(t5) zeros(size(t2))];
-DE = [r5*cos(t4) r5*sin(t4) zeros(size(t2))];
+DE = [r4*cos(t4) r4*sin(t4) zeros(size(t2))];
+AD = [r5*cos(t5) r5*sin(t5) zeros(size(t2))];
 EF = [r6*cos(t6) r6*sin(t6) zeros(size(t2))];
 AF = [r7*cos(t7) r7*sin(t7) zeros(size(t2))];
 AH = [r11*cos(t11) r11*sin(t11) zeros(size(t2))];
