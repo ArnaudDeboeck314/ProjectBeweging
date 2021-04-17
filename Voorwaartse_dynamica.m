@@ -71,7 +71,7 @@ t_12 = zeros(size(t));
 
 t_2(1) = 1.4;
 
-dt_2(1) = 0;
+dt_2(1) = 15;
 
 optim_options = optimset('Display','off');
 
