@@ -16,13 +16,13 @@ close all
 
 % program parameters 
 % (1 if the plot needs to be done 0 if it doesn't)
-plot_kin = 0;
-plot_dyn = 0;
-plot_mov = 0;
+plot_kin = 1;
+plot_dyn = 1;
+plot_mov = 1;
 plot_kinCheck = 1;
-plot_dynCheck = 0;
-plot_krachten_x1 = 0;
-plot_krachten_x2 = 0;
+plot_dynCheck = 1;
+plot_krachten_x1 = 1;
+plot_krachten_x2 = 1;
 
 
 % kinematic parameters (link lengths) 
