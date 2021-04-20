@@ -175,6 +175,7 @@ alpha3 = [zeros(size(t2)) zeros(size(t2)) ddt3];
 alpha4 = [zeros(size(t2)) zeros(size(t2)) ddt4];
 alpha5 = [zeros(size(t2)) zeros(size(t2)) ddt5];
 alpha6 = [zeros(size(t2)) zeros(size(t2)) ddt6];
+alpha7 = [zeros(size(t2)) zeros(size(t2)) ddt7];
 alpha11 = [zeros(size(t2)) zeros(size(t2)) ddt11];
 alpha12 = [zeros(size(t2)) zeros(size(t2)) ddt12];
 
@@ -239,19 +240,19 @@ end
 
 %acceleration 
 
-acc_H1 = cross(omega11,cross(omega11,AH)) + cross(alpha11,AH);
-acc_H2 = cross(omega2,cross(omega2,BC)) + cross(alpha2,BC) - cross(omega12,cross(omega12,HC)) - cross(alpha12,HC);
+acc_H1 = cross(omega11,cross(omega11,AH)) + cross(alpha11,AH); %
+acc_H2 = cross(omega2,cross(omega2,BC)) + cross(alpha2,BC) + cross(omega12,cross(omega12,HC)) + cross(alpha12,HC);%
 
-acc_C1 = acc_H1 + cross(omega12,cross(omega12,HC)) + cross(alpha12,HC);
-acc_C2 = cross(omega2,cross(omega2,BC)) + cross(alpha2,BC);
-acc_C3 = cross(omega4,cross(omega4,AD)) + cross(alpha4,AD) - cross(omega3,cross(omega3,CD)) - cross(alpha3,CD);
+acc_C1 = acc_H1 - cross(omega12,cross(omega12,HC)) - cross(alpha12,HC);%
+acc_C2 = cross(omega2,cross(omega2,BC)) + cross(alpha2,BC);%
+acc_C3 = -cross(omega5,cross(omega5,AD)) - cross(alpha5,AD) + cross(omega3,cross(omega3,CD)) + cross(alpha3,CD);
 
-acc_A1 = acc_C2 - cross(omega12,cross(omega12,HC)) - cross(alpha12,HC) - acc_H1;
-acc_A2 = acc_C2 + cross(omega3,cross(omega3,CD)) + cross(alpha3,CD) - cross(omega4,cross(omega4,AD)) - cross(alpha4,AD);
-acc_A3 = cross(omega4,cross(omega4,AD)) + cross(alpha4,AD)+ cross(omega5,cross(omega5,DE)) + cross(alpha5,DE) + cross(omega6,cross(omega6,EF)) + cross(alpha6,EF) - cross(omega11,cross(omega11,AF)) - cross(alpha11,AF);
+acc_A1 = acc_C2 + cross(omega12,cross(omega12,HC)) + cross(alpha12,HC) - acc_H1;
+acc_A2 = acc_C2 - cross(omega3,cross(omega3,CD)) - cross(alpha3,CD) + cross(omega5,cross(omega5,AD)) + cross(alpha5,AD);
+acc_A3 = -cross(omega5,cross(omega5,AD)) - cross(alpha5,AD) - cross(omega4,cross(omega4,DE)) - cross(alpha4,DE) + cross(omega6,cross(omega6,EF)) + cross(alpha6,EF) + cross(omega7,cross(omega7,AF)) + cross(alpha7,AF);
 
-acc_B1 = acc_C1 - cross(omega2,cross(omega2,BC)) - cross(alpha2,BC);
-acc_B2 = acc_C2 - cross(omega12,cross(omega12,HC)) - cross(alpha12,HC) - acc_H1; 
+acc_B1 = acc_C1 + cross(omega2,cross(omega2,BC)) + cross(alpha2,BC);%
+acc_B2 = acc_C2 - cross(omega12,cross(omega12,HC)) - cross(alpha12,HC) + acc_H1; %
 
 %plot errors 
 if plot_kinCheck
@@ -285,6 +286,13 @@ if plot_kinCheck
     xlabel('t [s]')
     ylabel('acc_{C1} - acc_{C3} [m/s^2] ')
     axis tight
+    
+    subplot(5,2,6)
+    plot(t,acc_H1 - acc_H2)
+    xlabel('t [s]')
+    ylabel('acc_{H1} - acc_{H2} [m/s^2] ')
+    axis tight
+
 end
         
 end
