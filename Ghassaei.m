@@ -72,7 +72,7 @@ I12 = m12*r12^2/12;
 omega = 0.15;
 t_begin = 0;
 t_end = round(2*2*pi/omega,0);
-Ts = 0.01;
+Ts = 0.001;
 t = [t_begin:Ts:t_end]';
 
 %t1=cte

@@ -294,6 +294,155 @@ if plot_kinCheck
     axis tight
 
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ANALYTICAL SOLUTION VS NUMERICAL DERIVATIVE OF VELOCITY AND ACCELERATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% initialize iteration variables
+difft3 = zeros(size(t));
+difft4 = zeros(size(t));
+difft5 = zeros(size(t));
+difft6 = zeros(size(t));
+difft11 = zeros(size(t));
+difft12 = zeros(size(t));
+ddifft3 = zeros(size(t));
+ddifft4 = zeros(size(t));
+ddifft5 = zeros(size(t));
+ddifft6 = zeros(size(t));
+ddifft11 = zeros(size(t));
+ddifft12 = zeros(size(t));
+errdt3 = zeros(size(t));
+errdt4 = zeros(size(t));
+errdt5 = zeros(size(t));
+errdt6 = zeros(size(t));
+errdt11 = zeros(size(t));
+errdt12 = zeros(size(t));
+errddt3 = zeros(size(t));
+errddt4 = zeros(size(t));
+errddt5 = zeros(size(t));
+errddt6 = zeros(size(t));
+errddt11 = zeros(size(t));
+errddt12 = zeros(size(t));
+
+% finite difference calculation of first and second derivative difft_i and ddifft_i
+% f'(x) = (f(x+1)-f(x-1))/(2*Ts)
+% f''(x) = (f(x+1)-2*f(x)+f(x-1))/(Ts^2)
+Ts = t(2) - t(1);      % timestep
+for k=2:t_size-1       % (2:n-1) instead of (1:n) because f(-1) and f(n+1) do not exist
+    difft3(k) = (t3(k+1) - t3(k-1)) / (2*Ts); 
+    difft4(k) = (t4(k+1) - t4(k-1)) / (2*Ts); 
+    difft5(k) = (t5(k+1) - t5(k-1)) / (2*Ts);
+    difft6(k) = (t6(k+1) - t6(k-1)) / (2*Ts);
+    difft11(k) = (t11(k+1) - t11(k-1)) / (2*Ts);
+    difft12(k) = (t12(k+1) - t12(k-1)) / (2*Ts);
+    ddifft3(k) = (t3(k+1) - 2*t3(k) + t3(k-1)) / (Ts^2); 
+    ddifft4(k) = (t4(k+1) - 2*t4(k) + t4(k-1)) / (Ts^2); 
+    ddifft5(k) = (t5(k+1) - 2*t5(k) + t5(k-1)) / (Ts^2);
+    ddifft6(k) = (t6(k+1) - 2*t6(k) + t6(k-1)) / (Ts^2);
+    ddifft11(k) = (t11(k+1) - 2*t11(k) + t11(k-1)) / (Ts^2);
+    ddifft12(k) = (t12(k+1) - 2*t12(k) + t12(k-1)) / (Ts^2);
+end
+
+% extrapolation for difft_i(1), difft_i(n), ddifft_i(1) and ddifft_i(n)
+% y = y_1 + ((x-x_1)/(x_2-x_1))*(y_2-y_1) met (x-x_1)/(x_2-x_1)=-1
+% y = 2*y_1 - y_2
+difft3(1) = 2*difft3(2) - difft3(3);
+difft4(1) = 2*difft4(2) - difft4(3); 
+difft5(1) = 2*difft5(2) - difft5(3);
+difft6(1) = 2*difft6(2) - difft6(3);
+difft11(1) = 2*difft11(2) - difft11(3);
+difft12(1) = 2*difft12(2) - difft12(3);
+difft3(t_size) = 2*difft3(t_size-1) - difft3(t_size-2);
+difft4(t_size) = 2*difft4(t_size-1) - difft4(t_size-2);
+difft5(t_size) = 2*difft5(t_size-1) - difft5(t_size-2);
+difft6(t_size) = 2*difft6(t_size-1) - difft6(t_size-2);
+difft11(t_size) = 2*difft11(t_size-1) - difft11(t_size-2); 
+difft12(t_size) = 2*difft12(t_size-1) - difft12(t_size-2);
+ddifft3(1) = 2*ddifft3(2) - ddifft3(3);
+ddifft4(1) = 2*ddifft4(2) - ddifft4(3); 
+ddifft5(1) = 2*ddifft5(2) - ddifft5(3);
+ddifft6(1) = 2*ddifft6(2) - ddifft6(3);
+ddifft11(1) = 2*ddifft11(2) - ddifft11(3);
+ddifft12(1) = 2*ddifft12(2) - ddifft12(3);
+ddifft3(t_size) = 2*ddifft3(t_size-1) - ddifft3(t_size-2);
+ddifft4(t_size) = 2*ddifft4(t_size-1) - ddifft4(t_size-2);
+ddifft5(t_size) = 2*ddifft5(t_size-1) - ddifft5(t_size-2);
+ddifft6(t_size) = 2*ddifft6(t_size-1) - ddifft6(t_size-2);
+ddifft11(t_size) = 2*ddifft11(t_size-1) - ddifft11(t_size-2); 
+ddifft12(t_size) = 2*ddifft12(t_size-1) - ddifft12(t_size-2);
+
+% calculation of errdt_i and errddt_i
+for k=1:t_size
+    errdt3(k) = difft3(k) - dt3(k);
+    errdt4(k) = difft4(k) - dt4(k); 
+    errdt5(k) = difft5(k) - dt5(k);
+    errdt6(k) = difft6(k) - dt6(k);
+    errdt11(k) = difft11(k) - dt11(k);
+    errdt12(k) = difft12(k) - dt12(k);
+    errddt3(k) = ddifft3(k) - ddt3(k);
+    errddt4(k) = ddifft4(k) - ddt4(k); 
+    errddt5(k) = ddifft5(k) - ddt5(k);
+    errddt6(k) = ddifft6(k) - ddt6(k);
+    errddt11(k) = ddifft11(k) - ddt11(k);
+    errddt12(k) = ddifft12(k) - ddt12(k);
+end
+
+% **********************
+% *** plot figures ***
+% **********************
+if plot_kinCheck
+    figure
+    subplot(231)
+    plot(t,errdt3)
+    xlabel('t [s]')
+    ylabel('errdt3 [rad/s]') 
+    subplot(232)
+    plot(t,errdt4)
+    xlabel('t [s]')
+    ylabel('errdt4 [rad/s]')
+    subplot(233)
+    plot(t,errdt5)
+    xlabel('t [s]')
+    ylabel('errdt5 [rad/s]') 
+    subplot(234)
+    plot(t,errdt6)
+    xlabel('t [s]')
+    ylabel('errdt6 [rad/s]')
+    subplot(235)
+    plot(t,errdt11)
+    xlabel('t [s]')
+    ylabel('errdt11 [rad/s]')
+    subplot(236)
+    plot(t,errdt12)
+    xlabel('t [s]')
+    ylabel('errdt12 [rad/s]')
+    
+    figure
+    subplot(231)
+    plot(t,errddt3)
+    xlabel('t [s]')
+    ylabel('errddt3 [rad/s^2]') 
+    subplot(232)
+    plot(t,errddt4)
+    xlabel('t [s]')
+    ylabel('errddt4 [rad/s^2]')
+    subplot(233)
+    plot(t,errddt5)
+    xlabel('t [s]')
+    ylabel('errddt5 [rad/s^2]') 
+    subplot(234)
+    plot(t,errddt6)
+    xlabel('t [s]')
+    ylabel('errddt6 [rad/s^2]')
+    subplot(235)
+    plot(t,errddt11)
+    xlabel('t [s]')
+    ylabel('errddt11 [rad/s^2]')
+    subplot(236)
+    plot(t,errddt12)
+    xlabel('t [s]')
+    ylabel('errddt12 [rad/s^2]')
+end
         
 end
 
