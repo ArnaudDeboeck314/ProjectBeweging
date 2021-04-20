@@ -254,9 +254,7 @@ acc_B1 = acc_C1 - cross(omega2,cross(omega2,BC)) - cross(alpha2,BC);
 acc_B2 = acc_C2 - cross(omega12,cross(omega12,HC)) - cross(alpha12,HC) - acc_H1; 
 
 %plot errors 
-acc = 0
-
-if acc
+if plot_kinCheck
     figure
     subplot(5,2,1)
     plot(t,acc_A1 - acc_A2)
