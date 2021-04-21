@@ -314,6 +314,8 @@ if plot_kin % only plot when asked (option  for time purpose)
     plot(t,dt7)
     ylabel('d\phi_7 [rad/s]')
     
+    figure
+    
     subplot(11,1,7)
     plot(t,dt8)
     ylabel('d\phi_8 [rad/s]')
@@ -360,6 +362,7 @@ if plot_kin % only plot when asked (option  for time purpose)
     plot(t,ddt7)
     ylabel('dd\phi_7 [rad/s^2]')
     
+    figure
     subplot(11,1,7)
     plot(t,ddt8)
     ylabel('dd\phi_8 [rad/s^2]')

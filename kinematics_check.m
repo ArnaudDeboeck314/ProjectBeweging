@@ -75,76 +75,76 @@ if plot_kinCheck
     
     figure
     % POINT A
-    subplot(4,6,1)
+    subplot(3,4,1)
     plot(t,real(A1)-real(A2))
     xlabel('time [s]')
     ylabel('real(A1)-real(A2)')
     axis tight
     
-    subplot(4,6,2)
+    subplot(3,4,2)
     plot(t,imag(A1)-imag(A2))
     xlabel('time [s]')
     ylabel('imag(A1)-imag(A2)')
     axis tight
     
-    subplot(4,6,3)
+    subplot(3,4,3)
     plot(t,real(A1)-real(A3))
     xlabel('time [s]')
     ylabel('real(A1)-real(A3)')
     axis tight
     
-    subplot(4,6,4)
+    subplot(3,4,4)
     plot(t,imag(A1)-imag(A3))
     xlabel('time [s]')
     ylabel('imag(A1)-imag(A3)')
     axis tight
     
-    subplot(4,6,5)
+    subplot(3,4,5)
     plot(t,real(A1)-real(A4))
     xlabel('time [s]')
     ylabel('real(A1)-real(A4)')
     axis tight
     
-    subplot(4,6,6)
+    subplot(3,4,6)
     plot(t,imag(A1)-imag(A4))
     xlabel('time [s]')
     ylabel('imag(A1)-imag(A4)')
     axis tight
     
     %point B
-    subplot(4,6,7)
+    subplot(3,4,7)
     plot(t,real(B1)-real(B2))
     xlabel('time [s]')
     ylabel('real(B1)-real(B2)')
     axis tight
     
-    subplot(4,6,8)
+    subplot(3,4,8)
     plot(t,imag(B1)-imag(B2))
     xlabel('time [s]')
     ylabel('imag(B1)-imag(B2)')
     axis tight
     
     %point C
-    subplot(2,6,9)
+    subplot(3,4,9)
     plot(t,real(C1)-real(C2))
     xlabel('time [s]')
     ylabel('real(C1)-real(C2)')
     axis tight
     
-    subplot(2,6,10)
+    subplot(3,4,10)
     plot(t,imag(C1)-imag(C2))
     xlabel('time [s]')
     ylabel('imag(C1)-imag(C2)')
     axis tight
     
     %point H
-    subplot(2,6,11)
+    subplot(3,4,11)
     plot(t,real(H1)-real(H2))
     xlabel('time [s]')
     ylabel('real(H1)-real(H2)')
     axis tight
     
-    subplot(2,6,12)
+    subplot(3,4,12)
     plot(t,imag(H1)-imag(H2))
     xlabel('time [s]')
     ylabel('imag(H1)-imag(H2)')
@@ -257,37 +257,37 @@ acc_B2 = acc_C2 - cross(omega12,cross(omega12,HC)) - cross(alpha12,HC) + acc_H1;
 %plot errors 
 if plot_kinCheck
     figure
-    subplot(5,2,1)
+    subplot(3,2,1)
     plot(t,acc_A1 - acc_A2)
     xlabel('t [s]')
     ylabel('acc_{A1} - acc_{A2} [m/s^2] ')
     axis tight
 
-    subplot(5,2,2)
+    subplot(3,2,2)
     plot(t,acc_A1 - acc_A3)
     xlabel('t [s]')
     ylabel('acc_{A1} - acc_{A3} [m/s^2] ')
     axis tight
 
-    subplot(5,2,3)
+    subplot(3,2,3)
     plot(t,acc_B1 - acc_B2)
     xlabel('t [s]')
     ylabel('acc_{B1} - acc_{B2} [m/s^2] ')
     axis tight
 
-    subplot(5,2,4)
+    subplot(3,2,4)
     plot(t,acc_C1 - acc_C2)
     xlabel('t [s]')
     ylabel('acc_{C1} - acc_{C2} [m/s^2] ')
     axis tight
 
-    subplot(5,2,5)
+    subplot(3,2,5)
     plot(t,acc_C1 - acc_C3)
     xlabel('t [s]')
     ylabel('acc_{C1} - acc_{C3} [m/s^2] ')
     axis tight
     
-    subplot(5,2,6)
+    subplot(3,2,6)
     plot(t,acc_H1 - acc_H2)
     xlabel('t [s]')
     ylabel('acc_{H1} - acc_{H2} [m/s^2] ')
