@@ -24,7 +24,7 @@ plot_kinCheck = 0;
 plot_dynCheck = 0; 
 
 % kinematic parameters (link lengths) 
-r1 = 75;
+r1 = 53;
 r2 = 26;
 r3 = 56;
 r4 = 77;

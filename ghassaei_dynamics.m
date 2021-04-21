@@ -265,4 +265,16 @@ a12_y(k) = a2_y(k)*2 + -dt12(k)*dt12(k)*r12*0.5*sin(t12(k)) + ddt12(k)*r12*0.5*c
      
 end
 
+figure 
+subplot(1,2,1)
+plot(t, M_2)
+xlabel('t [s]')
+ylabel('M [Nm*10^-4]')
+axis tight
+
+subplot(1,2,2)
+plot(t, M_2 - M_2c)
+xlabel('t [s]')
+ylabel('M [Nm*10^-4]')
+axis tight
 end
