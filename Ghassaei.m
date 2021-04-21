@@ -9,7 +9,7 @@
 % start with empty plots
 clear 
 close all
-set(0,'defaultAxesFontSize',20)
+set(0,'defaultAxesFontSize',17)
 
 % #####################################################
 % Data initialisation
