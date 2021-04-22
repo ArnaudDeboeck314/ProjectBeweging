@@ -309,25 +309,25 @@ figure
 subplot(1,2,1)
 plot(t, L_x)
 xlabel('t [s]')
-ylabel('Lx [kg*cm/s^2]')
+ylabel('dLx [kg*cm/s^2]')
 axis tight
 
 subplot(1,2,2)
 plot(t, L_y)
 xlabel('t [s]')
-ylabel('Ly [kg*cm/s^2]')
+ylabel('dLy [kg*cm/s^2]')
 axis tight
 
 figure 
 subplot(1,2,1)
 plot(t, L_x + F1_2_x + F1_5_x + F1_7_x + F1_9_x + F1_11_x)
 xlabel('t [s]')
-ylabel('L [kg*cm/s^2]')
+ylabel('dL [kg*cm/s^2]')
 axis tight
 
 subplot(1,2,2)
 plot(t, L_y + F1_2_y + F1_5_y + F1_7_y + F1_9_y + F1_11_y)
 xlabel('t [s]')
-ylabel('L [kg*cm/s^2]')
+ylabel('dL [kg*cm/s^2]')
 axis tight
 end
