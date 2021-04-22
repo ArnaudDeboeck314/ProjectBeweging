@@ -272,17 +272,10 @@ for k=1:size(t)
     dt_2(k+1) = dt_2(k) + Ts*ddt_2(k);
 end
 
-figure
-subplot(1,2,1)
+figuur
 plot(t, dt_2(1:16801))
 xlabel('t [s]')
-ylabel('dt2 [rad/s]')
-axis tight
-
-subplot(1,2,2)
-plot(t, ddt_2(1:16801))
-xlabel('t [s]')
-ylabel('ddt2 [rad/s^2]')
+ylabel('L [kg*cm/s^2]')
 axis tight
 
 end

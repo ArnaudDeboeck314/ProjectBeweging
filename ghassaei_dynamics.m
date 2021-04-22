@@ -268,13 +268,66 @@ end
 figure 
 subplot(1,2,1)
 plot(t, M_2)
+hold on
+plot(t, M_2c)
 xlabel('t [s]')
-ylabel('M [Nm*10^-4]')
+ylabel('M2 & M2c [Nm*10^-4]')
 axis tight
 
 subplot(1,2,2)
 plot(t, M_2 - M_2c)
 xlabel('t [s]')
 ylabel('M [Nm*10^-4]')
+axis tight
+
+figure
+subplot(2,2,1)
+plot(t, F1_2_x)
+xlabel('t [s]')
+ylabel('F1,2x [cN]')
+axis tight
+
+subplot(2,2,2)
+plot(t, F2_12_x)
+xlabel('t [s]')
+ylabel('F2,12x [cN]')
+axis tight
+
+subplot(2,2,3)
+plot(t, F1_2_y)
+xlabel('t [s]')
+ylabel('F1,2y [cN]')
+axis tight
+
+subplot(2,2,4)
+plot(t, F2_12_y)
+xlabel('t [s]')
+ylabel('F2,12,y [cN]')
+axis tight
+
+figure 
+subplot(1,2,1)
+plot(t, L_x)
+xlabel('t [s]')
+ylabel('Lx [kg*cm/s^2]')
+axis tight
+
+subplot(1,2,2)
+plot(t, L_y)
+xlabel('t [s]')
+ylabel('Ly [kg*cm/s^2]')
+axis tight
+
+figure 
+subplot(1,2,1)
+plot(t, L_x + F1_2_x + F1_5_x + F1_7_x + F1_9_x + F1_11_x)
+xlabel('t [s]')
+ylabel('L [kg*cm/s^2]')
+axis tight
+
+subplot(1,2,2)
+plot(t, L_y + F1_2_y + F1_5_y + F1_7_y + F1_9_y + F1_11_y)
+xlabel('t [s]')
+ylabel('L [kg*cm/s^2]')
 axis tight
 end
