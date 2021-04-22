@@ -17,10 +17,10 @@ set(0,'defaultAxesFontSize',17)
 
 % program parameters 
 % (1 if the plot needs to be done 0 if it doesn't)
-plot_kin = 1;
+plot_kin = 0;
 plot_dyn = 0;
 plot_mov = 0;
-plot_kinCheck = 0;
+plot_kinCheck = 1;
 plot_dynCheck = 0; 
 
 % kinematic parameters (link lengths) 

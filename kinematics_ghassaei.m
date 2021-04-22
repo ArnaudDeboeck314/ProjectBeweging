@@ -237,149 +237,152 @@ if plot_kin % only plot when asked (option  for time purpose)
     figure
     assembly=[A, B, C, H, A, F, E, D, A, B, C, D, A, G, F, G, H];
     plot(real(assembly),imag(assembly),'ro-')
-    xlabel('[m]')
-    ylabel('[m]')
+    xlabel('[cm]')
+    ylabel('[cm]')
     title('assembly')
     axis equal
     
     %###### corner plot #####
     figure
-    subplot(11,1,1)
+    subplot(6,1,1)
     plot(t,t2)
     ylabel('\phi_2 [rad]')
     
-    subplot(11,1,2)
+    subplot(6,1,2)
     plot(t,t3)
     ylabel('\phi_3 [rad]')
     
-    subplot(11,1,3)
+    subplot(6,1,3)
     plot(t,t4)
     ylabel('\phi_4 [rad]')
     
-    subplot(11,1,4)
+    subplot(6,1,4)
     plot(t,t5)
     ylabel('\phi_5 [rad]')
     
-    subplot(11,1,5)
+    subplot(6,1,5)
     plot(t,t6)
     ylabel('\phi_6 [rad]')
     
-    subplot(11,1,6)
+    subplot(6,1,6)
     plot(t,t7)
     ylabel('\phi_7 [rad]')
     
-    subplot(11,1,7)
+    figure
+    
+    subplot(6,1,1)
     plot(t,t8)
     ylabel('\phi_8 [rad]')
     
-    subplot(11,1,8)
+    subplot(6,1,2)
     plot(t,t9)
     ylabel('\phi_9 [rad]')
     
-    subplot(11,1,9)
+    subplot(6,1,3)
     plot(t,t10)
     ylabel('\phi_{10} [rad]')
     
-    subplot(11,1,10)
+    subplot(6,1,4)
     plot(t,t11)
     ylabel('\phi_{11} [rad]')
     
-    subplot(11,1,11)
+    subplot(6,1,5)
     plot(t,t12)
     ylabel('\phi_{12} [rad]')
     
     %###### corner velocity plot #####
     figure 
-     subplot(11,1,1)
+     subplot(6,1,1)
     plot(t,dt2)
     ylabel('d\phi_2 [rad/s]')
     
-    subplot(11,1,2)
+    subplot(6,1,2)
     plot(t,dt3)
     ylabel('d\phi_3 [rad/s]')
     
-    subplot(11,1,3)
+    subplot(6,1,3)
     plot(t,dt4)
     ylabel('d\phi_4 [rad/s]')
     
-    subplot(11,1,4)
+    subplot(6,1,4)
     plot(t,dt5)
     ylabel('d\phi_5 [rad/s]')
     
-    subplot(11,1,5)
+    subplot(6,1,5)
     plot(t,dt6)
     ylabel('d\phi_6 [rad/s]')
     
-    subplot(11,1,6)
+    subplot(6,1,6)
     plot(t,dt7)
     ylabel('d\phi_7 [rad/s]')
     
+    figure
     
-    
-    subplot(11,1,7)
+    subplot(6,1,1)
     plot(t,dt8)
     ylabel('d\phi_8 [rad/s]')
     
-    subplot(11,1,8)
+    subplot(6,1,2)
     plot(t,dt9)
     ylabel('d\phi_9 [rad/s]')
     
-    subplot(11,1,9)
+    subplot(6,1,3)
     plot(t,dt10)
     ylabel('d\phi_{10} [rad/s]')
     
-    subplot(11,1,10)
+    subplot(6,1,4)
     plot(t,dt11)
     ylabel('d\phi_{11} [rad/s]')
     
-    subplot(11,1,11)
+    subplot(6,1,5)
     plot(t,dt12)
     ylabel('d\phi_{12} [rad/s]')
     
     %###### corner acceleration plot #####
     figure 
-    subplot(11,1,1)
+    subplot(6,1,1)
     plot(t,ddt2)
     ylabel('dd\phi_2 [rad/s^2]')
     
-    subplot(11,1,2)
+    subplot(6,1,2)
     plot(t,ddt3)
     ylabel('dd\phi_3 [rad/s^2]')
     
-    subplot(11,1,3)
+    subplot(6,1,3)
     plot(t,ddt4)
     ylabel('dd\phi_4 [rad/s^2]')
     
-    subplot(11,1,4)
+    subplot(6,1,4)
     plot(t,ddt5)
     ylabel('dd\phi_5 [rad/s^2]')
     
-    subplot(11,1,5)
+    subplot(6,1,5)
     plot(t,ddt6)
     ylabel('dd\phi_6 [rad/s^2]')
     
-    subplot(11,1,6)
+    subplot(6,1,6)
     plot(t,ddt7)
     ylabel('dd\phi_7 [rad/s^2]')
     
+    figure
     
-    subplot(11,1,7)
+    subplot(6,1,1)
     plot(t,ddt8)
     ylabel('dd\phi_8 [rad/s^2]')
     
-    subplot(11,1,8)
+    subplot(6,1,2)
     plot(t,ddt9)
     ylabel('dd\phi_9 [rad/s^2]')
     
-    subplot(11,1,9)
+    subplot(6,1,3)
     plot(t,dt10)
     ylabel('dd\phi_{10} [rad/s^2]')
     
-    subplot(11,1,10)
+    subplot(6,1,4)
     plot(t,ddt11)
     ylabel('dd\phi_{11} [rad/s^2]')
     
-    subplot(11,1,11)
+    subplot(6,1,5)
     plot(t,ddt12)
     ylabel('dd\phi_{12} [rad/s^2]')
 end
