@@ -1,3 +1,11 @@
+% #####################################################
+%
+% Linkage system: Linkage system of Ghassaei
+% 
+% Seppe Vilain, Arnoud Deboeck
+% 
+% #####################################################
+
 function dynamics_check(F1_2_x,F2_12_x,F2_3_x,F3_4_x,F3_5_x,F4_6_x,F6_7_x,F6_8_x,F8_9_x, ...
           F8_10_x,F12_10_x,F12_11_x,F1_5_x,F1_7_x,F1_9_x,F1_11_x,t,plot_dynCheck)
 
