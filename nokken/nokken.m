@@ -4,8 +4,8 @@ clear
 close all
 
 %figuren plotten 
-singlerise=0;
-multirise=1;
+singlerise=1;
+multirise=0;
 contactkracht=0;
 
 %data inladen uit de gegevens geproduceerd met het matcam.m file
@@ -123,6 +123,8 @@ if singlerise
     ylim([-0.0002 0.0002])
     legend('excitatie-responsie','exponentieel omhullende')
 end
+% display(Amp)
+
 
 %##     Multi Rise      ##
 
