@@ -22,16 +22,12 @@ M_L = P1/w;
 
 M = M_gem-M_L;
 
-M_langer = [M, M];
-theta_langer = [theta, theta];
-
 En = 0;
 
 delta_theta = theta(2) - theta(1);
-%14221:41133
 
 for i = 5132:14221
-    En = En + M_langer(i)*delta_theta;
+    En = En + M(i)*delta_theta;
 end
 
 I = abs(En)/(0.1*w^2)
