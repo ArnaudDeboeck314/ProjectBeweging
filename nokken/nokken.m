@@ -4,8 +4,8 @@ clear
 close all
 
 %figuren plotten 
-singlerise=1;
-multirise=0;
+singlerise=0;
+multirise=1;
 contactkracht=0;
 
 %data inladen uit de gegevens geproduceerd met het matcam.m file
@@ -62,7 +62,7 @@ sys = tf(teller, noemer);
 tau_single = 0:1/6000:5-1/6000; %array met de waarden tussen 1 en 5-1/6000 en met step size 1/6000 [1x30000]
 
 % theta = tau - (1/(2pi)) * sin(2*pi*tau) met theta(tau>=0) = 1
-theta= rectangularPulse(-0.1,1,tau_single).*((excOutput.w*tau_single*t1/beta) - (1/(2*pi))*sin(2*pi*(excOutput.w*tau_single*t1/beta))) + heaviside(tau_single-1);
+theta_single= rectangularPulse(-0.1,1,tau_single).*((excOutput.w*tau_single*t1/beta) - (1/(2*pi))*sin(2*pi*(excOutput.w*tau_single*t1/beta))) + heaviside(tau_single-1);
 
 theta0=0;
 theta_dot0=0;
@@ -71,14 +71,14 @@ theta_dot0=0;
 
 X0=[1/C(2)*theta_dot0; 1/C(2)*theta0];
 
-gamma_single=lsim(A,B,C,D,theta,tau_single,X0);
+gamma_single=lsim(A,B,C,D,theta_single,tau_single,X0);
 
-difference=theta(:)-gamma_single(:);
+difference_single=theta_single(:)-gamma_single(:);
 
 if singlerise
     figure('Name','Single rise')
     subplot(3,1,1)
-    plot(tau_single,theta)
+    plot(tau_single,theta_single)
     title('Input excitatie')
     xlabel('\tau [-]')
     ylabel('\theta [-]')
@@ -90,7 +90,7 @@ if singlerise
     ylabel('\gamma [-]')
     axis([0 2 0 1])
     subplot(3,1,3)
-    plot(tau_single,difference)
+    plot(tau_single,difference_single)
     title('Verschil tussen excitatie en responsie')
     xlabel('\tau [-]')
     ylabel('\theta-\gamma [-]')
@@ -101,13 +101,13 @@ end
 N = 3;
 Q = (2*pi)^2;
 Amp = Q/((2*pi*lambda)^N);
-[yup,ylow]=envelope(difference,1,'peak');
+[yup,ylow]=envelope(difference_single,1,'peak');
 yexp = Amp*exp(-zeta*(2*pi*lambda)*(tau_single-1));
 
 if singlerise
     figure('Name','Benaderende singe rise')
     subplot(2,1,1)
-    plot(tau_single,difference,tau_single,yup,tau_single,ylow,tau_single,Amp)
+    plot(tau_single,difference_single,tau_single,yup,tau_single,ylow,tau_single,Amp)
     title('Single Rise Envelope')
     xlabel('\tau [-]')
     ylabel('\theta-\gamma [-]')
@@ -115,7 +115,7 @@ if singlerise
     ylim([-0.0002 0.0002])
     legend('excitatie-responsie','bovenenvelop','onderenvelop')
     subplot(2,1,2)
-    plot(tau_single,difference,tau_single,Amp,tau_single, yexp)
+    plot(tau_single,difference_single,tau_single,Amp,tau_single, yexp)
     title('Exponentieel omhullende')
     xlabel('\tau [-]')
     ylabel('\theta-\gamma [-]')
@@ -140,11 +140,11 @@ theta=repmat(output.S/30,1,25);
 
 gamma_multi=lsim(sys,theta,tau_multi);
 
-difference=theta(:)-gamma_multi(:);
+difference_multi=theta(:)-gamma_multi(:);
 
 verschil=zeros(24*36000,1);
 for i=1:24*36000
-    verschil(i)=difference(i+36000)-difference(i);
+    verschil(i)=difference_multi(i+36000)-difference_multi(i);
 end
 
 if multirise
@@ -162,7 +162,7 @@ if multirise
     ylabel('\gamma')
     xlim([24 25])
     subplot(313)
-    plot(tau_multi,difference);
+    plot(tau_multi,difference_multi);
     title('Verschil tussen excitatie en responsie')
     xlabel('\tau')
     ylabel('\gamma-\theta')
@@ -175,10 +175,16 @@ if multirise
     ylabel('[\gamma(\tau+1)-\theta(\tau+1)]-[\gamma(\tau)-\theta(\tau)]')
 
     figure('Name','Verschil tussen Single - en Multi Rise')
-    plot(tau_single(1:6000),1/3+2/3*gamma_single(1:6000)-gamma_multi(873001:879000))
+    plot(tau_single(1:6000),(difference_single(1:6000)-difference_multi(873001:879000)))
     title('Verschil tussen single en multi rise (90°-150°)')
     xlabel('\tau [-]')
     ylabel('\gamma_{single} - \gamma_{multi} [-]')
+    
+    figure('Name','Trilling ten gevolge van de dynamische volger');
+    plot(tau_multi(867000:900000), difference_multi(867000:900000));
+    title('Trilling ten gevolgde van de dynamische volger');
+    xlabel('\tau');
+    ylabel('\gamma-\theta');
 end
 
 
